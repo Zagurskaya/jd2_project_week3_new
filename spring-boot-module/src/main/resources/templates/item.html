@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add item page</title>
+</head>
+<body>
+<form action="#" th:action="@{/items/add}" th:object="${itemDTO}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+                <select th:field="*{status}">
+                    <option th:value="'READY'" th:text="READY"></option>
+                    <option th:value="'COMPLETED'" th:text="COMPLETED"></option>
+                </select>
+            </td>
+            <td th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
