@@ -55,7 +55,22 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void add(ItemDTO itemDTO) {
-        //TODO
+        try (Connection connection = itemRepository.getConnection()) {
+            connection.setAutoCommit(false);
+            try {
+                Item item = itemConverter.toEntity(itemDTO);
+
+                Item added = itemRepository.add(item, connection);
+
+            } catch (Exception e) {
+                connection.rollback();
+                logger.error(e.getMessage(), e);
+                throw new ServiceException("Something wrong with database");
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage(), e);
+            throw new ServiceException("Something wrong with database");
+        }
     }
 
     @Override

@@ -13,7 +13,18 @@ public class ItemConverterImpl implements ItemConverter {
         ItemDTO itemDTO = new ItemDTO();
         itemDTO.setId(item.getId());
         itemDTO.setName(item.getName());
-        itemDTO.setStatus(item.getStatus().name());
+        itemDTO.setStatus(item.getStatus());
         return itemDTO;
     }
+
+    @Override
+    public Item toEntity(ItemDTO itemDTO) {
+        Item item = new Item();
+        item.setId(itemDTO.getId());
+        item.setName(itemDTO.getName());
+        item.setStatus(itemDTO.getStatus());
+        return item;
+    }
+
+
 }

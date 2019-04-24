@@ -40,15 +40,13 @@ public class ItemController {
 
     @GetMapping("/items/add")
     public String getItemView(ItemDTO itemDTO) {
-        itemService.add(itemDTO);
+//        itemService.add(itemDTO);
+        int i =1;
         return "item";
     }
 
     @PostMapping("/items/add")
-    public String addItem(
-            @Valid @ModelAttribute ItemDTO itemDTO,
-            BindingResult result
-    ) {
+    public String addItem(@Valid @ModelAttribute ItemDTO itemDTO, BindingResult result) {
         if (result.hasErrors()) {
             return "item";
         }

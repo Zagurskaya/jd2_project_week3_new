@@ -58,7 +58,6 @@ public class AbstractRepository implements ConnectionRepository {
     private void processSQL(Connection connection) throws SQLException {
         connection.setAutoCommit(false);
         try (Statement statement = connection.createStatement()) {
-            // todo: read file as string into -> separate by ; -> foreach -> statement.addBatch()
             statement.addBatch(
                     "CREATE TABLE IF NOT EXISTS ITEM(id int auto_increment primary key, name varchar(100), status varchar(100))");
             statement.addBatch(

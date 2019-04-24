@@ -5,6 +5,7 @@ public class Item {
     private Long id;
     private String name;
     private ItemStatusEnum status;
+//    private String status;
 
     public Long getId() {
         return id;
@@ -22,9 +23,17 @@ public class Item {
         this.name = name;
     }
 
+//    public String getStatus() {
+//        return status;
+//    }
+
     public ItemStatusEnum getStatus() {
         return status;
     }
+
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
 
     public void setStatus(ItemStatusEnum status) {
         this.status = status;

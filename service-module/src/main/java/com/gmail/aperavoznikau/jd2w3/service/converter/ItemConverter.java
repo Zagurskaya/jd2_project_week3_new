@@ -7,4 +7,6 @@ public interface ItemConverter {
 
     ItemDTO toDTO(Item item);
 
+    Item toEntity(ItemDTO item);
+
 }

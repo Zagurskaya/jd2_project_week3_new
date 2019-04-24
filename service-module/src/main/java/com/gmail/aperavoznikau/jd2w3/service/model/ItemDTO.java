@@ -1,5 +1,7 @@
 package com.gmail.aperavoznikau.jd2w3.service.model;
 
+import com.gmail.aperavoznikau.jd2w3.data.model.ItemStatusEnum;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -10,12 +12,12 @@ public class ItemDTO {
     @Size(max = 40)
     private String name;
     @NotNull
-    private String status;
+    private ItemStatusEnum status;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(Long id, String name, String status) {
+    public ItemDTO(Long id, String name, ItemStatusEnum status) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -29,7 +31,7 @@ public class ItemDTO {
         return name;
     }
 
-    public String getStatus() {
+    public ItemStatusEnum getStatus() {
         return status;
     }
 
@@ -41,7 +43,7 @@ public class ItemDTO {
         this.name = name;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ItemStatusEnum status) {
         this.status = status;
     }
 }
